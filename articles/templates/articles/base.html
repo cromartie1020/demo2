@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Document{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'articles/style.css' %}">
+    
+</head>
+<body>
+  <div class="wrapper">
+    <nav>
+    
+        <ul>
+          <div id='header'>  
+            <a href="{% url 'list' %}">Home</a>
+            
+            {% if user.is_authenticated %}
+            <div class='alignment'>
+                <form  action="{% url 'logout' %}" method='POST'>
+                    {% csrf_token %}
+                    <button type='submit' value='logout'>Logout</button>
+                </form>
+            
+                <form  action="{% url 'create' %}"  method='POST'>
+                    {% csrf_token %}
+                    <button type='submit' value='create'>Create</button>
+                </form>
+            </div>
+            <div>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Sign up</a>
+            {% endif %}
+            </div>
+         </div> 
+        </ul>                
+        
+    </nav>
+      {% block content %}
+      
+      {% endblock %}
+      <div class='offset'>
+
+      </div>
+      <div class='footer' >
+        {% include 'articles/footer.html' %}
+      </div>
+   </div>  
+</body>
+</html>

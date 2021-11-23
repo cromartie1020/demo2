@@ -1,0 +1,26 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+{% block title %}
+    Article List 
+{% endblock %}
+{% block content %}
+    <h4 class='user-list'>Hi {{ request.user }} you are logged in. </h4>
+    <h1 class='centerline'>Article List</h1> 
+    <div class='articles'>
+        {% for article in articles %} 
+        
+            <div class='article'>
+                
+                <!--<h2 class='bold'><a href="{% url 'detail' article.id %}">{{ article.title }}</a></h2>-->
+                <h2 class='bold'><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+                <p>{{article.snippet}}</p>
+                <img src="{{ article.image.url }}">
+                <p>{{article.date}}</p>
+                <br>
+            </div>    
+        
+        {% endfor%}
+    </div>
+    
+{% endblock %}
+

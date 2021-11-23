@@ -1,0 +1,15 @@
+{% extends 'articles/base.html' %}
+{% block title %}
+ Article Details
+{% endblock %}
+
+{% block content %}
+  <div class="article-detail">
+   <div class='article'>   
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.body|safe|linebreaks }}</p>
+    <p>{{ article.date }}</p>
+    <img src="{{ article.image.url }}" />
+   </div>
+  </div> 
+{% endblock %}
