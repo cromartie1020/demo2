@@ -1,8 +1,6 @@
-{% extends 'articles/base.html'%}
-{% load static %}
-{% block content %}
- <div class='create'>
-   Create a new article
-   <a href="{% url 'create' %}"></a>
- </div>
-{% endblock content %} 
+{% extends 'accounts/base.html'%} {% load static %} {% block content %}
+<div class="create">
+  Create a new article
+  <a href="{% url 'create' %}"></a>
+</div>
+{% endblock content %}

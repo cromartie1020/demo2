@@ -1,24 +1,14 @@
-{% extends 'articles/base.html' %}
-{% load static %}
-{% block title %}
-    Article List 
-{% endblock %}
-{% block content %}
-    <h4 class='user-list'>Hi {{ request.user }} you are logged in. </h4>
-    <h1 class='centerline'>Article List</h1> 
-    <div class='articles'>
-        
-            <div class='article'>
-              <form action="" method="POST">
-                 {% csrf_token %}
-                 {{ form.as_p }}
-                 <input type="submit" value="Submit">
+{% extends 'accounts/base.html' %} {% load static %} {% block title %} Article
+List {% endblock %} {% block content %}
+<h4 class="user-list">Hi {{ request.user }} you are logged in.</h4>
+<h1 class="centerline">Article List</h1>
+<div class="articles">
+  <div class="article">
+    <form action="" method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+</div>
 
-              </form>  
-                
-            </div>    
-        
-    </div>
-    
 {% endblock %}
-
