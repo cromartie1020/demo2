@@ -1,0 +1,9 @@
+body {
+  background-color: beige;
+}
+
+.three {
+  display: grid;
+  grid-template-columns: 4fr 4fr 4fr;
+  gap: 2em;
+}
